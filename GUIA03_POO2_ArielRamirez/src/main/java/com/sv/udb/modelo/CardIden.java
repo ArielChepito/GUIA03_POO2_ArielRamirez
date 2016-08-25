@@ -13,6 +13,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -26,26 +27,29 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Ariel
  */
 @Entity
-@Table(name = "tipo_docu", catalog = "rceron_poo", schema = "")
+@Table(name = "card_iden", catalog = "rceron_poo", schema = "")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TipoDocu.findAll", query = "SELECT t FROM TipoDocu t"),
-    @NamedQuery(name = "TipoDocu.findByCodiTipoDocu", query = "SELECT t FROM TipoDocu t WHERE t.codiTipoDocu = :codiTipoDocu"),
-    @NamedQuery(name = "TipoDocu.findByNombTipoDocu", query = "SELECT t FROM TipoDocu t WHERE t.nombTipoDocu = :nombTipoDocu"),
-    @NamedQuery(name = "TipoDocu.findByFechAlta", query = "SELECT t FROM TipoDocu t WHERE t.fechAlta = :fechAlta"),
-    @NamedQuery(name = "TipoDocu.findByFechBaja", query = "SELECT t FROM TipoDocu t WHERE t.fechBaja = :fechBaja"),
-    @NamedQuery(name = "TipoDocu.findByEsta", query = "SELECT t FROM TipoDocu t WHERE t.esta = :esta")})
-public class TipoDocu implements Serializable {
+    @NamedQuery(name = "CardIden.findAll", query = "SELECT c FROM CardIden c"),
+    @NamedQuery(name = "CardIden.findByCodiCard", query = "SELECT c FROM CardIden c WHERE c.codiCard = :codiCard"),
+    @NamedQuery(name = "CardIden.findByNombCard", query = "SELECT c FROM CardIden c WHERE c.nombCard = :nombCard"),
+    @NamedQuery(name = "CardIden.findByFechAlta", query = "SELECT c FROM CardIden c WHERE c.fechAlta = :fechAlta"),
+    @NamedQuery(name = "CardIden.findByFechBaja", query = "SELECT c FROM CardIden c WHERE c.fechBaja = :fechBaja"),
+    @NamedQuery(name = "CardIden.findByEsta", query = "SELECT c FROM CardIden c WHERE c.esta = :esta")})
+public class CardIden implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @Column(name = "codi_tipo_docu")
-    private Long codiTipoDocu;
-    @Size(max = 50)
-    @Column(name = "nomb_tipo_docu")
-    private String nombTipoDocu;
+    @Column(name = "codi_card")
+    private Long codiCard;
+    @Size(max = 255)
+    @Column(name = "nomb_card")
+    private String nombCard;
+    @Lob
+    @Column(name = "foto_card")
+    private byte[] fotoCard;
     @Column(name = "fech_alta")
     @Temporal(TemporalType.TIMESTAMP)
     private Date fechAlta;
@@ -55,27 +59,35 @@ public class TipoDocu implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
-    public TipoDocu() {
+    public CardIden() {
     }
 
-    public TipoDocu(Long codiTipoDocu) {
-        this.codiTipoDocu = codiTipoDocu;
+    public CardIden(Long codiCard) {
+        this.codiCard = codiCard;
     }
 
-    public Long getCodiTipoDocu() {
-        return codiTipoDocu;
+    public Long getCodiCard() {
+        return codiCard;
     }
 
-    public void setCodiTipoDocu(Long codiTipoDocu) {
-        this.codiTipoDocu = codiTipoDocu;
+    public void setCodiCard(Long codiCard) {
+        this.codiCard = codiCard;
     }
 
-    public String getNombTipoDocu() {
-        return nombTipoDocu;
+    public String getNombCard() {
+        return nombCard;
     }
 
-    public void setNombTipoDocu(String nombTipoDocu) {
-        this.nombTipoDocu = nombTipoDocu;
+    public void setNombCard(String nombCard) {
+        this.nombCard = nombCard;
+    }
+
+    public byte[] getFotoCard() {
+        return fotoCard;
+    }
+
+    public void setFotoCard(byte[] fotoCard) {
+        this.fotoCard = fotoCard;
     }
 
     public Date getFechAlta() {
@@ -105,18 +117,18 @@ public class TipoDocu implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (codiTipoDocu != null ? codiTipoDocu.hashCode() : 0);
+        hash += (codiCard != null ? codiCard.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof TipoDocu)) {
+        if (!(object instanceof CardIden)) {
             return false;
         }
-        TipoDocu other = (TipoDocu) object;
-        if ((this.codiTipoDocu == null && other.codiTipoDocu != null) || (this.codiTipoDocu != null && !this.codiTipoDocu.equals(other.codiTipoDocu))) {
+        CardIden other = (CardIden) object;
+        if ((this.codiCard == null && other.codiCard != null) || (this.codiCard != null && !this.codiCard.equals(other.codiCard))) {
             return false;
         }
         return true;
@@ -124,7 +136,7 @@ public class TipoDocu implements Serializable {
 
     @Override
     public String toString() {
-        return "com.sv.udb.modelo.TipoDocu[ codiTipoDocu=" + codiTipoDocu + " ]";
+        return "com.sv.udb.modelo.CardIden[ codiCard=" + codiCard + " ]";
     }
     
 }
