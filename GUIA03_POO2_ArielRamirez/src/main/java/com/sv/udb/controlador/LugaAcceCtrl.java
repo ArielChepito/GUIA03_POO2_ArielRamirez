@@ -60,4 +60,68 @@ public class LugaAcceCtrl {
         return resp;
        
     }
+      public boolean modi(LugaAcce obje)
+    {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        try
+        {
+            em.merge(obje);
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
+    
+   
+    public boolean elim(Long empId)
+    {
+        boolean resp = false;
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        LugaAcce respo = null;
+        try{
+            respo = em.find(LugaAcce.class, empId);
+            if(respo != null)
+            {
+                em.remove(respo);
+                tx.commit();
+                resp = true; 
+            }
+        }catch(Exception e){
+            tx.rollback();
+        }
+        em.close();
+        emf.close();
+        return resp;
+    }
+
+
+     
+     
+    public LugaAcce get(Long empId){
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        LugaAcce resp = null;
+        
+        try{
+            resp = em.find(LugaAcce.class, empId);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }                
+        return resp;
+    }
 }
