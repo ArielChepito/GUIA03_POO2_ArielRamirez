@@ -5,6 +5,7 @@
  */
 package com.sv.udb.controlador;
 
+import com.sv.udb.modelo.TipoDocu;
 import com.sv.udb.modelo.TipoGafe;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,6 +109,20 @@ public class TipoGafeCtrl {
         }
         em.close();
         emf.close();
+        return resp;
+    }
+     public TipoGafe get(Long empId){
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+        EntityManager em = emf.createEntityManager();
+        TipoGafe resp = null;
+        
+        try{
+            resp = em.find(TipoGafe.class, empId);
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }                
         return resp;
     }
 }
