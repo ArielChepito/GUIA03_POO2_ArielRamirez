@@ -18,7 +18,7 @@
     </head>
     <body>
         <form action="LugaAcceServ" method="Post">
-             <input  type="hidden" name="codi" id="codi"value=""/>
+             <input  type="hidden" name="codi" id="codi" value="${codi}"/>
             <div class="container">
                 
                 
@@ -26,11 +26,12 @@
                     <h2>Usando JPA [Lugares de Acceso]</h2>
                     <div class="form-group">
                         <label for="nomb">Nombre: </label>
-                        <input class="form-control" type="text" name="nomb"id="nomb" value=""/>
+                        <input class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" />
                     </div>
                     <div class="btn-group">
                         <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />
                         <input type="submit" name="lugaAcceBton" value="Consultar" class="btn btn-default" />
+                        <input type="submit" name="lugaAcceBton" value="Modificar" class="btn btn-default" />
                         <input type="submit" name="lugaAcceBton" value="Eliminar" class="btn btn-default" />
                     </div>
                 </div>

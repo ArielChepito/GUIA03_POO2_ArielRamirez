@@ -69,6 +69,15 @@ public class LugaAcceServ extends HttpServlet {
                      }
                     request.getRequestDispatcher("/index.jsp").forward(request, response);
             }
+            else if(CRUD.equals("Modificar"))
+            {
+                 LugaAcce obje = new LugaAcce();
+                obje.setNombLugaAcce(request.getParameter("nomb"));
+                obje.setEsta(1);
+                obje.setCodiLugaAcce(Long.parseLong(request.getParameter("codi")));
+                mens = new LugaAcceCtrl().modi(obje) ? "Datos modificados" : "Datos no modificados";
+                 request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
            
         }
         else

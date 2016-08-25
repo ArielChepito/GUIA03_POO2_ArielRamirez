@@ -60,16 +60,19 @@ public class LugaAcceCtrl {
         return resp;
        
     }
-      public boolean modi(LugaAcce obje)
+        public boolean modi(LugaAcce obje)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
+         LugaAcce lugar = null;
         tx.begin();
         try
         {
-            em.merge(obje);
+            
+            lugar = em.find(LugaAcce.class, obje.getCodiLugaAcce());
+            lugar.setNombLugaAcce(obje.getNombLugaAcce());
             tx.commit();
             resp = true;
         }
@@ -88,7 +91,7 @@ public class LugaAcceCtrl {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
+        EntityTransaction tx = em.getTransaction();       
         tx.begin();
         LugaAcce respo = null;
         try{
