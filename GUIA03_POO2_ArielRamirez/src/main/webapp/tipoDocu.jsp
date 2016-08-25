@@ -1,8 +1,9 @@
 <%-- 
-    Document   : index
-    Created on : 24-ago-2016, 22:13:06
+    Document   : tipoDocu
+    Created on : 25-ago-2016, 1:14:34
     Author     : Ariel
 --%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -45,13 +46,13 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
-        <form action="LugaAcceServ" method="Post">
+        <form action="TipoDocuServ" method="Post">
              <input  type="hidden" name="codi" id="codi" value="${codi}"/>
             <div class="container">
                 
                 
                 <div class="panel panel-default" style="padding: 15px;">
-                    <h2>Usando JPA [Lugares de Acceso]</h2>
+                    <h2>CRUD Tipo de documento</h2>
                     <div class="form-group">
                         <label for="nomb">Nombre: </label>
                         <input class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" />
@@ -64,21 +65,19 @@
                     </div>
                 </div>
                 <div class="panel panel-default"style="padding: 15px;">
-                    <jsp:useBean id="LugaAcceCtrl" class="com.sv.udb.controlador.LugaAcceCtrl" scope="page"/>
+                    <jsp:useBean id="TipoDocuCtrl" class="com.sv.udb.controlador.TipoDocuCtrl" scope="page"/>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Fecha Alta</th>
+                                <th>Nombre</th>                              
                                  <th>Seleccione</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach items="${LugaAcceCtrl.ConsTodo()}" var="fila">
+                            <c:forEach items="${TipoDocuCtrl.ConsTodo()}" var="fila">
                                 <tr>
-                                    <td><c:out value="${fila.nombLugaAcce}"></c:out></td>
-                                    <td><c:out value="${fila.fechAlta}"></c:out></td>
-                                    <td> <input type="radio" name="codiRadi" value="${fila.codiLugaAcce}"/></td>
+                                    <td><c:out value="${fila.nombTipoDocu}"></c:out></td>                                 
+                                    <td> <input type="radio" name="codiRadi" value="${fila.codiTipoDocu}"/></td>
                                 </tr>
                             </c:forEach>
                         </tbody>

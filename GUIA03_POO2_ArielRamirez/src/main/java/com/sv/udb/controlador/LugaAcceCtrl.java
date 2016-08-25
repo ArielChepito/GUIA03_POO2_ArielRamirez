@@ -70,7 +70,10 @@ public class LugaAcceCtrl {
         tx.begin();
         try
         {
-            
+            //No olvidar la funcion merge, esa es una exelente funcion si el form tiene todos los datos
+            // por que por ejemplo, aquí solo voy a modificar el nombre y por lo anto solo ese campo esta
+            //en el form, pero los demas como estado y fecha no, así que como recibe nada, hace update con nada
+            //por eso, en este caso, es masconveniente setear uno por uno
             lugar = em.find(LugaAcce.class, obje.getCodiLugaAcce());
             lugar.setNombLugaAcce(obje.getNombLugaAcce());
             tx.commit();
