@@ -8,6 +8,7 @@ package com.sv.udb.controlador;
 import com.sv.udb.modelo.CardIden;
 import com.sv.udb.modelo.LugaAcce;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -89,30 +90,55 @@ public class LugaAcceCtrl {
     }
     
    
-    public boolean elim(Long empId)
+//    public boolean elim(Long empId)
+//    {
+//        boolean resp = false;
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
+//        EntityManager em = emf.createEntityManager();
+//        EntityTransaction tx = em.getTransaction();       
+//        tx.begin();
+//        LugaAcce respo = null;
+//        try{
+//            respo = em.find(LugaAcce.class, empId);
+//            if(respo != null)
+//            {
+//                em.remove(respo);
+//                tx.commit();
+//                resp = true; 
+//            }
+//        }catch(Exception e){
+//            tx.rollback();
+//        }
+//        em.close();
+//        emf.close();
+//        return resp;
+//    }
+
+  public boolean elim(Long empId)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();       
+        EntityTransaction tx = em.getTransaction();
+        LugaAcce lugar = null;
         tx.begin();
-        LugaAcce respo = null;
-        try{
-            respo = em.find(LugaAcce.class, empId);
-            if(respo != null)
-            {
-                em.remove(respo);
-                tx.commit();
-                resp = true; 
-            }
-        }catch(Exception e){
+        try
+        {
+            
+            lugar = em.find(LugaAcce.class, empId);
+            lugar.setEsta(0);
+            lugar.setFechBaja(new Date());
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
             tx.rollback();
         }
         em.close();
         emf.close();
         return resp;
     }
-
 
      
      

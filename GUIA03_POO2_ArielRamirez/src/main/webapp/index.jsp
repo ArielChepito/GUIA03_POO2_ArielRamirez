@@ -55,7 +55,7 @@
                     <h2>CRUD de Lugares Acceso</h2>
                     <div class="form-group">
                         <label for="nomb">Nombre: </label>
-                        <input  data-msg-required="Este campo es requerido" class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" required />
+                        <input  data-msg-required="Este campo es requerido" class="form-control" type="text" name="nomb" id="nomb"value="${nomb}"  />
                     </div>
                     <div class="btn-group">
                         <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />

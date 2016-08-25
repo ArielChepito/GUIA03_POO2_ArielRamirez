@@ -5,9 +5,11 @@
  */
 package com.sv.udb.controlador;
 
+import com.sv.udb.modelo.LugaAcce;
 import com.sv.udb.modelo.TipoDocu;
 import com.sv.udb.modelo.TipoGafe;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -88,23 +90,25 @@ public class TipoGafeCtrl {
     }
     
    
-    public boolean elim(Long empId)
+     public boolean elim(Long empId)
     {
         boolean resp = false;
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");
         EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();       
+        EntityTransaction tx = em.getTransaction();
+        LugaAcce lugar = null;
         tx.begin();
-        TipoGafe respo = null;
-        try{
-            respo = em.find(TipoGafe.class, empId);
-            if(respo != null)
-            {
-                em.remove(respo);
-                tx.commit();
-                resp = true; 
-            }
-        }catch(Exception e){
+        try
+        {
+            
+            lugar = em.find(LugaAcce.class, empId);
+            lugar.setEsta(0);
+            lugar.setFechBaja(new Date());
+            tx.commit();
+            resp = true;
+        }
+        catch(Exception ex)
+        {
             tx.rollback();
         }
         em.close();

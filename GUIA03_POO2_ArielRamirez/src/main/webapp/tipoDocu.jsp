@@ -55,7 +55,7 @@
                     <h2>CRUD Tipo de documento</h2>
                     <div class="form-group">
                         <label for="nomb">Nombre: </label>
-                        <input class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" required/>
+                        <input class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" />
                     </div>
                     <div class="btn-group">
                         <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />
