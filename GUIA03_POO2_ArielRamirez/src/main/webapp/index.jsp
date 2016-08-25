@@ -15,6 +15,7 @@
         <link rel='stylesheet' href='webjars/bootstrap/3.2.0/css/bootstrap.min.css'/>
         <script type='text/javascript' src='webjars/jquery/2.1.4/jquery.min.js'></script>
         <script type='text/javascript' src='webjars/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+        
     </head>
     <body>
         
@@ -45,16 +46,16 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
-        <form action="LugaAcceServ" method="Post">
+        <form action="LugaAcceServ"  method="Post">
              <input  type="hidden" name="codi" id="codi" value="${codi}"/>
             <div class="container">
                 
                 
                 <div class="panel panel-default" style="padding: 15px;">
-                    <h2>Usando JPA [Lugares de Acceso]</h2>
+                    <h2>CRUD de Lugares Acceso</h2>
                     <div class="form-group">
                         <label for="nomb">Nombre: </label>
-                        <input class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" />
+                        <input  data-msg-required="Este campo es requerido" class="form-control" type="text" name="nomb" id="nomb"value="${nomb}" required />
                     </div>
                     <div class="btn-group">
                         <input type="submit" name="lugaAcceBton" value="Guardar" class="btn btn-default" />
