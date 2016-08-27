@@ -55,49 +55,102 @@ public class TipoGafe implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+    /**
+     * Constructor de la clase TipoGafe, no necesita parametros      
+     */
     public TipoGafe() {
     }
 
+    /**
+     * Constructor de la clase TipoGafe que recibe solo la primary Key del objeto
+     * @param codiTipoGafe Número Long       
+     */ 
     public TipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
+    
+    /**
+     * Getter de Codigo de la clase TipoGafe
+     * @return Un numero Long
+  
+     */
 
     public Long getCodiTipoGafe() {
         return codiTipoGafe;
     }
 
+    /**
+     * Setter de codigo de la clase TipoGafe
+     * @param codiTipoGafe Número Long       
+     */ 
     public void setCodiTipoGafe(Long codiTipoGafe) {
         this.codiTipoGafe = codiTipoGafe;
     }
 
+    /**
+     * Getter de nombre de la clase TipoGafe
+     * @return Una cadena String
+  
+     */
     public String getNombTipoGafe() {
         return nombTipoGafe;
     }
 
+     /**
+     * Setter de nombre de la clase TipoGafe
+     * @param nombTipoGafe Cadena String       
+     */ 
     public void setNombTipoGafe(String nombTipoGafe) {
         this.nombTipoGafe = nombTipoGafe;
     }
 
+    /**
+     * Getter de la fecha de alta de la clase TipoGafe
+     * @return Una fecha tipo java.util.Date
+  
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
 
+     /**
+     * Setter de fecha de alta de la clase TipoGafe
+     * @param fechAlta fecha Date       
+     */ 
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
 
+    /**
+     * Getter de la fecha de baja  de la clase TipoGafe
+     * @return Una fecha tipo java.util.Date
+  
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+    /**
+     * Setter de fecha de baja de la clase TipoGafe
+     * @param fechBaja fecha Date       
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
 
+     /**
+     * Getter del estado(activo o inactivo) de la  clase TipoGafe
+     * @return Un numero Integer
+  
+     */
     public Integer getEsta() {
         return esta;
     }
 
+     /**
+     * Setter del estado(activo o inactivo) la clase TipoGafe
+     * @param esta Numero Integer       
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }

@@ -55,49 +55,101 @@ public class TipoDocu implements Serializable {
     @Column(name = "esta")
     private Integer esta;
 
+     /**
+     * Constructor de la clase TipoDocu, no necesita parametros      
+     */
     public TipoDocu() {
     }
 
+    /**
+     * Constructor de la clase TipoDocu que recibe solo la primary Key del objeto
+     * @param codiTipoDocu Número Long       
+     */   
     public TipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }
 
+     /**
+     * Getter de Codigo de la clase TipoDocu
+     * @return Un numero Long
+  
+     */
     public Long getCodiTipoDocu() {
         return codiTipoDocu;
     }
 
+    /**
+     * Setter de codigo de la clase TipoDocu
+     * @param codiTipoDocu Número Long       
+     */ 
     public void setCodiTipoDocu(Long codiTipoDocu) {
         this.codiTipoDocu = codiTipoDocu;
     }
 
+    /**
+     * Getter de nombre de la clase TipoDocu
+     * @return Una cadena String
+  
+     */
     public String getNombTipoDocu() {
         return nombTipoDocu;
     }
 
+    /**
+     * Setter de nombre de la clase TipoDocu
+     * @param nombTipoDocu Cadena String       
+     */ 
     public void setNombTipoDocu(String nombTipoDocu) {
         this.nombTipoDocu = nombTipoDocu;
     }
 
+    /**
+     * Getter de la fecha de alta de la clase TipoDocu
+     * @return Una fecha tipo java.util.Date
+  
+     */
     public Date getFechAlta() {
         return fechAlta;
     }
 
+    /**
+     * Setter de fecha de alta de la clase TipoDocu
+     * @param fechAlta fecha Date       
+     */ 
     public void setFechAlta(Date fechAlta) {
         this.fechAlta = fechAlta;
     }
 
+    /**
+     * Getter de la fecha de baja  de la clase TipoDocu
+     * @return Una fecha tipo java.util.Date
+  
+     */
     public Date getFechBaja() {
         return fechBaja;
     }
 
+    /**
+     * Setter de fecha de baja de la clase TipoDocu
+     * @param fechBaja fecha Date       
+     */
     public void setFechBaja(Date fechBaja) {
         this.fechBaja = fechBaja;
     }
 
+     /**
+     * Getter del estado(activo o inactivo) de la  clase TipoDocu
+     * @return Un numero Integer
+  
+     */
     public Integer getEsta() {
         return esta;
     }
 
+     /**
+     * Setter del estado(activo o inactivo) la clase TipoDocu
+     * @param esta Numero Integer       
+     */
     public void setEsta(Integer esta) {
         this.esta = esta;
     }
