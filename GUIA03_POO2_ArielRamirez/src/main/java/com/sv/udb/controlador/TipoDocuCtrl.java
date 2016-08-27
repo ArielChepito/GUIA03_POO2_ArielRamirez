@@ -21,6 +21,12 @@ import javax.persistence.TypedQuery;
  * @author Laboratorio
  */
 public class TipoDocuCtrl {
+    
+     /**
+     * Método para guardar un tipo de documento en la base de datos
+     * @param obje TipoDocu objeto de tipo tipo de documento
+     * @return resp boolean true si ha sido guardado exitosamente
+     */
    public boolean guar(TipoDocu obje)
     {
         boolean resp = false;
@@ -43,6 +49,10 @@ public class TipoDocuCtrl {
         return resp;
     }
     
+   /**
+     * Método para consultar todos los tipos de documentos en la base de datos
+     * @return resp List lista de objetos de tipo TipoDocu
+     */
      public List<TipoDocu>  ConsTodo()
     {
         List<TipoDocu> resp = new ArrayList<>();
@@ -60,6 +70,12 @@ public class TipoDocuCtrl {
         return resp;
        
     }
+     
+      /**
+      * Método para modificar registros en la base de datos
+      * @param obje TipoDocu objeto de tipo tipo de documento
+      * @return resp boolean true si ha sido modificado exitosamente
+      */
         public boolean modi(TipoDocu obje)
     {
         boolean resp = false;
@@ -88,7 +104,11 @@ public class TipoDocuCtrl {
         return resp;
     }
     
-   
+    /**
+      * Método para dar de baja registros actualizando su estado
+      * @param empId Long llave primaria del registro a modificar
+      * @return resp boolean true si ha sido eliminado exitosamente
+      */
      public boolean elim(Long empId)
     {
         boolean resp = false;
@@ -114,6 +134,12 @@ public class TipoDocuCtrl {
         emf.close();
         return resp;
     }
+     
+       /**
+     * Método para obtener un solo registro de la base de datos
+     * @param empId Long llave primaria del registro que se desea obtener
+     * @return resp TipoDocu objeto de tipo tipo de documento con todos los datos del registro
+     */
       public TipoDocu get(Long empId){
         
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("POOPU");

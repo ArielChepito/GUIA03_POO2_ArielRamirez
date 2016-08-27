@@ -22,6 +22,11 @@ import javax.persistence.TypedQuery;
  */
 public class LugaAcceCtrl {
     
+    /**
+     * Método para guardar un lugar de acceso en la base de datos
+     * @param obje LugaAcce objeto de tipo lugar de acceso
+     * @return resp boolean true si ha sido guardado exitosamente
+     */
     public boolean guar(LugaAcce obje)
     {
         boolean resp = false;
@@ -44,6 +49,10 @@ public class LugaAcceCtrl {
         return resp;
     }
     
+     /**
+     * Método para consultar todos los lugares de accesos en la base de datos
+     * @return resp List lista de objetos de tipo LugaAcce
+     */
      public List<LugaAcce>  ConsTodo()
     {
         List<LugaAcce> resp = new ArrayList<>();
@@ -61,6 +70,12 @@ public class LugaAcceCtrl {
         return resp;
        
     }
+     
+       /**
+      * Método para modificar registros en la base de datos
+      * @param obje LugaAcce objeto de tipo lugar de acceso
+      * @return resp boolean true si ha sido modificado exitosamente
+      */
         public boolean modi(LugaAcce obje)
     {
         boolean resp = false;
@@ -114,6 +129,11 @@ public class LugaAcceCtrl {
 //        return resp;
 //    }
 
+         /**
+      * Método para dar de baja registros actualizando su estado
+      * @param empId Long llave primaria del registro a modificar
+      * @return resp boolean true si ha sido eliminado exitosamente
+      */
   public boolean elim(Long empId)
     {
         boolean resp = false;
